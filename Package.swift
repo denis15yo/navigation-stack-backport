@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
 	name: "navigation-stack-backport",
 	platforms: [
-		.iOS(.v14),
+		.iOS(.v12),
 	],
 	products: [
 		.library(name: "NavigationStackBackport", targets: ["NavigationStackBackport"]),

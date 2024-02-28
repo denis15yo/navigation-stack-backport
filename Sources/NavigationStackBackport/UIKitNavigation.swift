@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(iOS 14.0, *)
 struct UIKitNavigation<Root: View>: UIViewControllerRepresentable {
 	let root: Root
 	let path: NavigationPathBackport
@@ -27,6 +28,7 @@ struct UIKitNavigation<Root: View>: UIViewControllerRepresentable {
 	}
 }
 
+@available(iOS 14.0, *)
 private extension UIKitNavigation {
 	func prelayout(rootViewController: UIHostingController<Root>, navigationController: UINavigationController) {
 		navigationController.view.insertSubview(rootViewController.view, at: 0)

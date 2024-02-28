@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(iOS 14.0, *)
 public extension Backport {
 	@ViewBuilder func navigationDestination<D: Hashable, C: View>(for data: D.Type, @ViewBuilder destination: @escaping (D) -> C) -> some View {
 		if #available(iOS 16.0, *) {
@@ -10,6 +11,7 @@ public extension Backport {
 	}
 }
 
+@available(iOS 14.0, *)
 private struct DestinationModifier<D: Hashable, C: View>: ViewModifier {
 	let destination: (D) -> C
 	@Namespace private var id
@@ -29,6 +31,7 @@ private struct DestinationModifier<D: Hashable, C: View>: ViewModifier {
 	}
 }
 
+@available(iOS 14.0, *)
 struct Destination {
 	let view: (NavigationPathItem, Int) -> AnyView?
 	let accepts: (NavigationPathItem) -> Bool
@@ -42,6 +45,7 @@ struct Destination {
 	}
 }
 
+@available(iOS 14.0, *)
 extension EnvironmentValues {
 	var navigationContextId: Int {
 		get { self[ContextIdKey.self] }
@@ -53,6 +57,7 @@ private struct ContextIdKey: EnvironmentKey {
 	static var defaultValue = 0
 }
 
+@available(iOS 14.0, *)
 struct DestinationIDsKey: PreferenceKey {
 	static var defaultValue: Set<Namespace.ID> = []
 

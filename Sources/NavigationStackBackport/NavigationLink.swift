@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(iOS 14.0, *)
 public struct NavigationLink<Label: View>: View {
 	public let body: AnyView
 
@@ -52,6 +53,7 @@ public struct NavigationLink<Label: View>: View {
 	}
 }
 
+@available(iOS 14.0, *)
 private extension NavigationLink {
 	struct Backport: View {
 		let label: Label

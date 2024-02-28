@@ -1,6 +1,7 @@
 import Combine
 import SwiftUI
 
+@available(iOS 14.0, *)
 class NavigationAuthority: NSObject, ObservableObject {
 	weak var navigationController: UINavigationController? {
 		didSet { navigationController?.delegate = self }
@@ -30,6 +31,7 @@ class NavigationAuthority: NSObject, ObservableObject {
 	private var viewControllersCount = 1
 }
 
+@available(iOS 14.0, *)
 extension NavigationAuthority {
 	func update(id: Namespace.ID, destination: Destination) {
 		destinations[id] = destination
@@ -93,6 +95,7 @@ extension NavigationAuthority {
 	}
 }
 
+@available(iOS 14.0, *)
 extension NavigationAuthority: UINavigationControllerDelegate {
 	func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
 		let count = navigationController.viewControllers.count
@@ -110,6 +113,7 @@ extension NavigationAuthority: UINavigationControllerDelegate {
 	}
 }
 
+@available(iOS 14.0, *)
 private extension NavigationAuthority {
 	func view(for item: NavigationPathItem, index: Int) -> AnyView {
 		for destination in destinations.values {
@@ -147,6 +151,7 @@ private extension NavigationAuthority {
 	}
 }
 
+@available(iOS 14.0, *)
 extension EnvironmentValues {
 	var navigationAuthority: NavigationAuthority {
 		get { self[NavigationAuthorityKey.self] }
@@ -154,6 +159,7 @@ extension EnvironmentValues {
 	}
 }
 
+@available(iOS 14.0, *)
 private struct NavigationAuthorityKey: EnvironmentKey {
 	static var defaultValue = NavigationAuthority()
 }

@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(iOS 14.0, *)
 @MainActor struct NavigationUpdate {
 	var viewControllers: [UIViewController] {
 		didSet { changed = true }

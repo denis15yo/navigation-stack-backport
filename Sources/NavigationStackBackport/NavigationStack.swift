@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(iOS 14.0, *)
 public struct NavigationStack<Data, Root: View>: View {
 	public let body: AnyView
 
@@ -33,6 +34,7 @@ public struct NavigationStack<Data, Root: View>: View {
 	}
 }
 
+@available(iOS 14.0, *)
 private extension NavigationStack {
 	struct ImplicitStateView: View {
 		let root: Root

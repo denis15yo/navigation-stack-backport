@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(iOS 14.0, *)
 public extension Backport {
 	@ViewBuilder func navigationDestination<C: View>(isPresented: Binding<Bool>, @ViewBuilder destination: () -> C) -> some View {
 		if #available(iOS 16.0, *) {
@@ -21,6 +22,7 @@ public extension Backport {
 	}
 }
 
+@available(iOS 14.0, *)
 private struct PresentationModifier<C: View>: ViewModifier {
 	@Binding var isPresented: Bool
 	let destination: C
@@ -47,6 +49,7 @@ private struct PresentationModifier<C: View>: ViewModifier {
 	}
 }
 
+@available(iOS 14.0, *)
 private struct ItemPresentationModifier<D: Hashable, C: View>: ViewModifier {
 	@Binding var item: D?
 	let destination: (D) -> C
@@ -68,6 +71,7 @@ private struct ItemPresentationModifier<D: Hashable, C: View>: ViewModifier {
 	}
 }
 
+@available(iOS 14.0, *)
 struct Presentation {
 	let contextId: Int
 	let isPresented: Bool
@@ -80,6 +84,7 @@ struct Presentation {
 	}
 }
 
+@available(iOS 14.0, *)
 struct PresentationIDsKey: PreferenceKey {
 	static var defaultValue: [Namespace.ID] = []
 
